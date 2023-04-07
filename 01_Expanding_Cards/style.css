@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Multi&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Multi', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+header{
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    display: inline;
+    overflow: hidden;
+}
+header h1{
+    font-size: 4vh;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    width: 95vw;
+}
+
+.panel {
+    background-position: center;
+    background-size: cover;
+    height: 80vh;
+    background-repeat: no-repeat;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    flex: 0.5;
+    margin: 10px;
+    position: relative;
+    -webkit-transition: all 700ms ease-in;
+}
+
+.panel h3 {
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    margin: 0;
+    -webkit-transition: all 700ms ease-in;
+}
+
+.panel.active {
+    flex: 10;
+}
+
+.panel.active h3 {
+    opacity: 1;
+    -webkit-transition: all 700ms ease-in;
+}
+
+.panel:not(.active)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.3); /* establece un fondo semitransparente */
+    pointer-events: none; /* permite que los usuarios hagan clic en el panel debajo */
+    -webkit-transition: all 700ms ease-in;
+}
+.panel:not(.active) h3{
+    writing-mode: vertical-lr; /* establece la dirección de escritura vertical */
+    text-orientation: mixed; /* establece la orientación del texto */
+    -webkit-transition: all 700ms ease-in;
+}
+@media (max-width: 480px) {
+    .container {
+        width: 90vw;
+    }
+
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5) {
+        display: none;
+    }
+}
